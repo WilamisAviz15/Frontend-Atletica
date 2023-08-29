@@ -15,70 +15,52 @@ import bermuda2 from './img/bermuda2.jpg';
 import bermuda3 from './img/bermuda3.jpg';
 import bermuda4 from './img/bermuda4.webp';
 
+
+
 const Products = () => {
+  let arrayDeProdutos = [
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={camisa1} titulo="Camisa1" descricao="Camisa1 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={camisa2} titulo="Camisa2" descricao="Camisa2 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={camisa3} titulo="Camisa3" descricao="Camisa3 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={camisa4} titulo="Camisa4" descricao="Camisa4 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={camisa5} titulo="Camisa5" descricao="Camisa5 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={bermuda3} titulo="bermuda3" descricao="bermuda3 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={bermuda4} titulo="bermuda4" descricao="bermuda4 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={bermuda1} titulo="bermuda1" descricao="bermuda1 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={bermuda2} titulo="bermuda2" descricao="bermuda2 Esportiva" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={copo1} titulo="Copo1" descricao="Copo1 Esportivo" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={copo2} titulo="Copo2" descricao="Copo2 Esportivo" />
+    </Grid>,
+    <Grid item xs={3}>
+      <ProdutoCard imagemPath={copo3} titulo="Copo3" descricao="Copo3 Esportivo" />
+    </Grid>]
+
+
   return (<>
-    {/* <h1>Produtos disponíveis</h1>
-    <ProdutoCard /> */}
     <Container>
       <Grid container spacing={2} margin={3} width={'100%'}>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={camisa1} titulo="Camisa1" descricao="Camisa1 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={camisa2} titulo="Camisa2" descricao="Camisa2 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={camisa3} titulo="Camisa3" descricao="Camisa3 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={camisa4} titulo="Camisa4" descricao="Camisa4 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={camisa5} titulo="Camisa5" descricao="Camisa5 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={bermuda3} titulo="bermuda3" descricao="bermuda3 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={bermuda4} titulo="bermuda4" descricao="bermuda4 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={bermuda1} titulo="bermuda1" descricao="bermuda1 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={bermuda2} titulo="bermuda2" descricao="bermuda2 Esportiva" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={copo1} titulo="Copo1" descricao="Copo1 Esportivo" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={copo2} titulo="Copo2" descricao="Copo2 Esportivo" />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard imagemPath={copo3} titulo="Copo3" descricao="Copo3 Esportivo" />
-        </Grid>
-
-        {/* <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ProdutoCard />
-        </Grid> */}
+        {arrayDeProdutos.map((produto) => (produto))}
       </Grid >
     </Container >
 
