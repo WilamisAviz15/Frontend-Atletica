@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, ReactNode, useState } from "react";
+import React, { createContext, useReducer, ReactNode, useState, useEffect } from "react";
 
 import { ProductInterface } from "../../pages/interfaces/ProductInterface";
 
@@ -42,7 +42,12 @@ const CartProvider = ({ children }: CartProviderProps) => {
     cartItems: [],
   };
 
+  const [count, setCount] = useState(0);
   const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    setCount(state.cartItems.length);
+  }, [state.cartItems]);
 
   return <CartContext.Provider value={{ state, dispatch }}>{children}</CartContext.Provider>;
 };

@@ -7,7 +7,6 @@ import Header from "./components/header";
 import Products from "./pages/products";
 import Members from "./pages/members";
 import Cart from "./components/cart";
-import { CartProvider } from "./hooks/useContext/CartContext";
 
 function App() {
   return (
@@ -16,9 +15,7 @@ function App() {
         path="/"
         element={
           <Header>
-            <CartProvider>
-              <Home />
-            </CartProvider>
+            <Home />
           </Header>
         }
       ></Route>
@@ -26,9 +23,7 @@ function App() {
         path="/produtos"
         element={
           <Header>
-            <CartProvider>
-              <Products />
-            </CartProvider>
+            <Products />
           </Header>
         }
       ></Route>
@@ -36,9 +31,7 @@ function App() {
         path="/membros"
         element={
           <Header>
-            <CartProvider>
-              <Members />
-            </CartProvider>
+            <Members />
           </Header>
         }
       ></Route>
@@ -46,9 +39,7 @@ function App() {
         path="/carrinho"
         element={
           <Header>
-            <CartProvider>
-              <Cart />
-            </CartProvider>
+            <Cart />
           </Header>
         }
       ></Route>

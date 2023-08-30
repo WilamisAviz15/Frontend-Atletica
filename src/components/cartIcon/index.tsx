@@ -7,21 +7,16 @@ import { CartContext } from "../../hooks/useContext/CartContext";
 const CartIcon = () => {
   const context = useContext(CartContext);
 
-  const count = 0;
-
-  useEffect(() => {
-    // Lógica que você deseja executar quando o contexto (carrinho) é atualizado
-    console.log("Cart updated:", context);
-  }, [context]); // Dependência do useEffect é o valor do carrinho
-
   if (!context) {
     return null;
   }
 
+  const { state } = context;
+
   return (
     <div className={styles.div}>
       <MdOutlineShoppingCart />
-      <span>{count}</span>
+      <span>{state.cartItems.length}</span>
     </div>
   );
 };

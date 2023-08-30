@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./Header.module.scss";
 import Button from "../Button";
 import CartIcon from "../cartIcon";
-import { CartProvider } from "../../hooks/useContext/CartContext";
+import { CartContext, CartProvider } from "../../hooks/useContext/CartContext";
 
 const Header = ({ children }: { children: JSX.Element }) => {
   return (
-    <CartProvider>
+    <>
       <header className={styles.header}>
         <img src="assets/logo.png" alt="logo da atlética" />
         <ul>
@@ -37,7 +37,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
         </ul>
       </header>
       {children}
-    </CartProvider>
+    </>
   );
 };
 
