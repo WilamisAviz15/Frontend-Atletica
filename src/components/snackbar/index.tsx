@@ -19,8 +19,8 @@ export function CartToast({ open, handleClose }: CartToastProps) {
         horizontal: "center",
       }}
       open={open}
-      autoHideDuration={500}
-      onClose={() => handleClose}
+      autoHideDuration={1000}
+      onClose={() => handleClose()}
     >
       <div>
         <Alert onClose={handleClose} severity="success">

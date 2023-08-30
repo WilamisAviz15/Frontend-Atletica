@@ -18,18 +18,18 @@ interface IProps {
 }
 
 export default function ProductCard(item: IProps) {
-  const [cartOpen, setCartOpen] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const handleAddToCart = () => {
-    setCartOpen(true);
+  const handleOpenSnackbar = () => {
+    setOpenSnackbar(true);
   };
 
-  const handleCloseCart = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleCloseSnackbar = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
 
-    setCartOpen(false);
+    setOpenSnackbar(false);
   };
 
   const context = useContext(CartContext);
@@ -42,7 +42,7 @@ export default function ProductCard(item: IProps) {
 
   const addToCart = (item: IProps) => {
     dispatch({ type: "ADD_TO_CART", payload: { id: generateId(), product: item } });
-    handleAddToCart();
+    handleOpenSnackbar();
   };
 
   return (
@@ -68,7 +68,7 @@ export default function ProductCard(item: IProps) {
           </Button>
         </CardActions>
       </Card>
-      <CartToast open={cartOpen} handleClose={handleCloseCart} />
+      <CartToast open={openSnackbar} handleClose={handleCloseSnackbar} />
     </>
   );
 }
