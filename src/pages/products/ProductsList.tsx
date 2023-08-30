@@ -4,7 +4,7 @@ import { shirt1, shirt2, shirt3, shirt4, shirt5, cup1, cup2, cup3, shorts1, shor
 import { ProductInterface } from "../interfaces/ProductInterface";
 import { Grid } from "@mui/material";
 
-import ProdutoCard from "./card";
+import ProdutoCard from "./product-card";
 
 const ProductsList = () => {
   const [products, setProducts] = useState<ProductInterface[]>();
