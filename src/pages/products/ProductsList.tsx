@@ -98,7 +98,7 @@ const ProductsList = () => {
       {products &&
         products.map((product) => (
           <Grid item xs={3}>
-            <ProdutoCard imagePath={product.image} title={product.name} description={product.description} />
+            <ProdutoCard id={product.id} image={product.image} name={product.name} description={product.description} />
           </Grid>
         ))}
     </>
