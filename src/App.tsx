@@ -16,7 +16,9 @@ function App() {
         path="/"
         element={
           <Header>
-            <Home />
+            <CartProvider>
+              <Home />
+            </CartProvider>
           </Header>
         }
       ></Route>
@@ -34,7 +36,9 @@ function App() {
         path="/membros"
         element={
           <Header>
-            <Members />
+            <CartProvider>
+              <Members />
+            </CartProvider>
           </Header>
         }
       ></Route>

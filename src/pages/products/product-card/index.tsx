@@ -7,12 +7,14 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 import { CartContext } from "../../../hooks/useContext/CartContext";
 import { CartToast } from "../../../components/snackbar";
+import { generateId } from "../../../shared/util";
 
 interface IProps {
   id: number;
   name: string;
   description: string;
   image: string;
+  price: string;
 }
 
 export default function ProductCard(item: IProps) {
@@ -39,7 +41,7 @@ export default function ProductCard(item: IProps) {
   const { dispatch } = context;
 
   const addToCart = (item: IProps) => {
-    dispatch({ type: "ADD_TO_CART", payload: { id: 1, product: item } });
+    dispatch({ type: "ADD_TO_CART", payload: { id: generateId(), product: item } });
     handleAddToCart();
   };
 
@@ -54,6 +56,9 @@ export default function ProductCard(item: IProps) {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {item.description}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {item.price}
             </Typography>
           </CardContent>
         </CardActionArea>

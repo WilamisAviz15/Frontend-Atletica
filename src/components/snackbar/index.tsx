@@ -24,7 +24,7 @@ export function CartToast({ open, handleClose }: CartToastProps) {
     >
       <div>
         <Alert onClose={handleClose} severity="success">
-          Item added to cart!
+          Item adicionado ao carrinho.
         </Alert>
       </div>
     </Snackbar>
