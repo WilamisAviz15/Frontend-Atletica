@@ -18,6 +18,7 @@ interface IProps {
   qtdVendidaTotal: number;
   qtdSaldo: number;
   imagem: string;
+  categoria: string;
 }
 
 export default function ProductCard(item: IProps) {

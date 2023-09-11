@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { shirt1, shirt2, shirt3, shirt4, shirt5, cup1, cup2, cup3, shorts1, shorts2, shorts3, shorts4 } from "./images";
+import { shirt1, cup1, shorts1 } from "./images";
 import { ProductInterface } from "../interfaces/ProductInterface";
 import { Grid } from "@mui/material";
 
@@ -11,11 +11,28 @@ import { environment } from "../../environments/environment";
 const ProductList = () => {
   const [products, setProducts] = useState<ProductInterface[]>();
 
+  const handleProducts = (products: ProductInterface[]) => {
+    return products.map((product) => {
+      switch (product.categoria) {
+        case "Camiseta":
+          product.imagem = shirt1;
+          break;
+        case "Bermuda":
+          product.imagem = shorts1;
+          break;
+        case "Copo":
+          product.imagem = cup1;
+          break;
+      }
+      return product;
+    });
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(`${environment.api}/produtos/`);
-        setProducts(response.data);
+        setProducts(handleProducts(response.data));
       } catch (error) {
         console.error("Erro ao buscar dados da API:", error);
       }
@@ -38,6 +55,7 @@ const ProductList = () => {
               qtdEstoqueInicial={product.qtdEstoqueInicial}
               qtdSaldo={product.qtdSaldo}
               qtdVendidaTotal={product.qtdVendidaTotal}
+              categoria={product.categoria}
             />
           </Grid>
         ))}

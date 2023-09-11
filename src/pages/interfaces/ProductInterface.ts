@@ -7,4 +7,5 @@ export interface ProductInterface {
   qtdVendidaTotal: number;
   qtdSaldo: number;
   imagem: string;
+  categoria: string;
 }
