@@ -21,7 +21,7 @@ export default function Cart() {
 
   const handleSumProducts = () => {
     return state.cartItems
-      .reduce((acc, sum) => acc + +sum.product.price.replace(",", "."), 0)
+      .reduce((acc, sum) => acc + +sum.product.preco.replace(",", "."), 0)
       .toFixed(2)
       .replace(".", ",");
   };
@@ -44,16 +44,16 @@ export default function Cart() {
             {state.cartItems.map((item, index) => (
               <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 <TableCell component="th" scope="row">
-                  {item.product.name}
+                  {item.product.nome}
                 </TableCell>
                 <TableCell align="right" component="th" scope="row">
-                  {item.product.price}
+                  {item.product.preco}
                 </TableCell>
                 <TableCell align="right" component="th" scope="row">
                   1
                 </TableCell>
                 <TableCell align="right" component="th" scope="row">
-                  {(Number(item.product.price.replace(",", ".")) * 1).toFixed(2).replace(".", ",")}
+                  {(Number(item.product.preco.replace(",", ".")) * 1).toFixed(2).replace(".", ",")}
                 </TableCell>
                 <TableCell align="right" component="th" scope="row">
                   <Button text="Remover" onClick={() => removeFromCart(index)} />

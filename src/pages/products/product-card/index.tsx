@@ -11,10 +11,13 @@ import { generateId } from "../../../shared/util";
 
 interface IProps {
   id: number;
-  name: string;
-  description: string;
-  image: string;
-  price: string;
+  nome: string;
+  preco: string;
+  descricao: string;
+  qtdEstoqueInicial: number;
+  qtdVendidaTotal: number;
+  qtdSaldo: number;
+  imagem: string;
 }
 
 export default function ProductCard(item: IProps) {
@@ -49,16 +52,16 @@ export default function ProductCard(item: IProps) {
     <>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
-          <CardMedia component="img" height="300" image={item.image} alt="green iguana" />
+          <CardMedia component="img" height="300" image={item.imagem} alt="green iguana" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {item.name}
+              {item.nome}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {item.description}
+              {item.descricao}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {item.price}
+              {item.preco}
             </Typography>
           </CardContent>
         </CardActionArea>

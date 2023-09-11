@@ -1,7 +1,10 @@
 export interface ProductInterface {
   id: number;
-  name: string;
-  description: string;
-  image: string;
-  price: string;
+  nome: string;
+  preco: string;
+  descricao: string;
+  qtdEstoqueInicial: number;
+  qtdVendidaTotal: number;
+  qtdSaldo: number;
+  imagem: string;
 }
