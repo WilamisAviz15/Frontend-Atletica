@@ -8,6 +8,7 @@ import Products from "./pages/products";
 import Members from "./pages/members";
 import Cart from "./components/cart";
 import MembersForm from "./pages/members/members-form";
+import EventCreation from "./pages/event_creation";
 
 function App() {
   return (
@@ -52,6 +53,13 @@ function App() {
           </Header>
         }
       ></Route>
+      <Route
+        path="/event-creation"
+        element={
+          <Header>
+            <EventCreation />
+          </Header>}>
+      </Route>
       <Route path="/auth" element={<Auth />}></Route>
     </Routes>
   );
