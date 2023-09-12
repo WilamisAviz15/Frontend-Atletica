@@ -7,6 +7,7 @@ import Header from "./components/header";
 import Products from "./pages/products";
 import Members from "./pages/members";
 import Cart from "./components/cart";
+import MembersForm from "./pages/members/members-form";
 
 function App() {
   return (
@@ -32,6 +33,14 @@ function App() {
         element={
           <Header>
             <Members />
+          </Header>
+        }
+      ></Route>
+      <Route
+        path="/torne-se-membro"
+        element={
+          <Header>
+            <MembersForm />
           </Header>
         }
       ></Route>

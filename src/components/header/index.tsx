@@ -22,7 +22,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
             <Link to="/membros">Membros</Link>
           </li>
           <li>
-            <Link to="/membros-form">Torne-se membro</Link>
+            <Link to="/torne-se-membro">Torne-se membro</Link>
           </li>
           <li className={styles.cart}>
             <Link to="/carrinho">
