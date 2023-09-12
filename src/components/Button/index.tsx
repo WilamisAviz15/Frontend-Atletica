@@ -10,11 +10,12 @@ interface IProps {
   text: string;
   customStyles?: CustomStyles;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-const Button = ({ text, customStyles, onClick }: IProps) => {
+const Button = ({ text, customStyles, onClick, disabled }: IProps) => {
   return (
-    <button className={styles.btn} style={customStyles} onClick={onClick}>
+    <button className={styles.btn} style={customStyles} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   );

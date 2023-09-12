@@ -72,7 +72,12 @@ export default function ProductCard(item: IProps) {
           </Button>
         </CardActions>
       </Card>
-      <CartToast open={openSnackbar} handleClose={handleCloseSnackbar} />
+      <CartToast
+        open={openSnackbar}
+        handleClose={handleCloseSnackbar}
+        message="Item adicionado ao carrinho."
+        severity="success"
+      />
     </>
   );
 }
