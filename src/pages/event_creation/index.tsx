@@ -4,7 +4,7 @@ const EventCreation = () => {
 
     return (
         <>
-            <h1>EventCreation</h1>
+            <h1>Event Creation</h1>
         </>
     );
 };
