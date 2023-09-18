@@ -15,7 +15,7 @@ function EventCreation() {
 
         <form className="form">
             <div className="FormEvent">
-                <h1>Criar Evento</h1>
+                <h1 className="title">Criar Evento</h1>
                 <h2>Titulo do Evento</h2>
                 <TextField className="textField" id="outlined-basic" label="Titulo do Evento" variant="outlined" />
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -26,7 +26,7 @@ function EventCreation() {
                 </LocalizationProvider>
                 <h2>Informações complementares sobre o evento!</h2>
                 <TextField className="textField" id="outlined-basic" label="Informações do Evento" variant="outlined" />
-                <Button className="button" variant="contained">Criar Evento</Button>
+                <Button id="buttonCriar" variant="contained">Criar Evento</Button>
             </div>
         </form >
         // 
