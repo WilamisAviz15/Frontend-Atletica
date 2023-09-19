@@ -25,9 +25,6 @@ const Header = ({ children }: { children: JSX.Element }) => {
             <Link to="/torne-se-membro">Torne-se membro</Link>
           </li>
           <li>
-            <Link to="/torne-se-membro">Torne-se membro</Link>
-          </li>
-          <li>
             <Link to="/event-creation">Criar Evento</Link>
           </li>
           <li className={styles.cart}>
