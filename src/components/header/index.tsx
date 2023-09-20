@@ -34,7 +34,16 @@ const Header = ({ children }: { children: JSX.Element }) => {
           </li>
           <li>
             <Link to="/auth/login">
-              <Button text="Login" />
+              <Button
+                text="Login"
+                customStyles={{
+                  backgroundColor: "#FFEB3B",
+                  borderStyle: "none",
+                  borderRadius: "3px",
+                  color: "#212121",
+                  width: "100%",
+                }}
+              />
             </Link>
           </li>
         </ul>
