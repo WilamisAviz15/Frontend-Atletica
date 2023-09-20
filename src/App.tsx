@@ -8,7 +8,7 @@ import Products from "./pages/products";
 import Members from "./pages/members";
 import Cart from "./components/cart";
 import MembersForm from "./pages/members/members-form";
-import EventCreation from "./pages/event_creation";
+import EventCreation from "./pages/event-creation";
 import AuthRegister from "./pages/auth/auth-register";
 import AuthLogin from "./pages/auth/auth-login";
 
