@@ -6,13 +6,14 @@ import TextField from "@mui/material/TextField";
 import dayjs, { Dayjs } from "dayjs";
 import { AxiosError } from "axios";
 
-import { EventInterface, initialForm } from "../interfaces/event.interface";
+import { EventInterface } from "../interfaces/event.interface";
 import { errorMessages, hasEmptyFields } from "../../shared/util";
 import Button from "../../components/Button";
 import "./event.css";
 import eventService from "./event.service";
 import { SnackbarInterface } from "../members/interfaces/Snackbar.interface";
 import { CartToast } from "../../components/snackbar";
+import { initialForm } from "./options";
 
 function EventCreation() {
   const [form, setForm] = useState<EventInterface>(initialForm);

@@ -5,10 +5,3 @@ export interface EventInterface {
   data: Date | null;
   local: string;
 }
-
-export const initialForm: EventInterface = {
-  nome: "",
-  descricao: "",
-  data: null,
-  local: "",
-};
