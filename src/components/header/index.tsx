@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./Header.module.scss";
@@ -7,6 +7,21 @@ import CartIcon from "../cartIcon";
 import logo from "../../assets/logo.png";
 
 const Header = ({ children }: { children: JSX.Element }) => {
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      setIsLogged((value) => !value);
+    }
+  }, []);
+
+  const handleButton = () => {
+    if (isLogged) {
+      setIsLogged((value) => !value);
+      localStorage.clear();
+    }
+  };
+
   return (
     <>
       <header className={styles.header}>
@@ -35,7 +50,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
           <li>
             <Link to="/auth/login">
               <Button
-                text="Login"
+                text={isLogged ? "Sair" : "Login"}
                 customStyles={{
                   backgroundColor: "#FFEB3B",
                   borderStyle: "none",
@@ -43,6 +58,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
                   color: "#212121",
                   width: "100%",
                 }}
+                onClick={handleButton}
               />
             </Link>
           </li>
