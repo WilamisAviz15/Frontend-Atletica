@@ -10,6 +10,7 @@ import { CartToast } from "../../../components/snackbar";
 import { SnackbarInterface } from "../interfaces/Snackbar.interface";
 import { MenuItem } from "@mui/material";
 import { collegePeriod, course, initialForm } from "./options";
+import { errorMessages, hasEmptyFields } from "../../../shared/util";
 
 const MembersForm = () => {
   const [form, setForm] = useState<MemberInterface>(initialForm);
@@ -23,10 +24,6 @@ const MembersForm = () => {
       ...form,
       [name]: value,
     });
-  };
-
-  const hasEmptyFields = () => {
-    return Object.values(form).some((value) => value === "");
   };
 
   const handleOpenSnackbar = (message: string, severity: "success" | "error" | "info" | "warning") => {
@@ -49,10 +46,10 @@ const MembersForm = () => {
       const response = await axios.post(`${environment.api}/inscricao/`, form);
       console.log(response);
       console.log(form);
-      handleOpenSnackbar("Usuário cadastro com sucesso.", "success");
+      handleOpenSnackbar("Solicitação enviada com sucesso.", "success");
     } catch (error: any) {
       if (error instanceof AxiosError) {
-        handleOpenSnackbar(error.message, "error");
+        handleOpenSnackbar(errorMessages(error.response?.data), "error");
       }
     }
   };
@@ -100,7 +97,7 @@ const MembersForm = () => {
         <Button
           customStyles={{ backgroundColor: "#7b1fa2", color: "#f3e5f5", borderStyle: "none", width: "100%" }}
           text="Finalizar cadastro"
-          disabled={hasEmptyFields()}
+          disabled={hasEmptyFields(form)}
         />
       </form>
       <CartToast

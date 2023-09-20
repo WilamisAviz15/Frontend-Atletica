@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./Header.module.scss";
 import Button from "../Button";
 import CartIcon from "../cartIcon";
-import { CartContext, CartProvider } from "../../hooks/useContext/CartContext";
+import logo from "../../assets/logo.png";
 
 const Header = ({ children }: { children: JSX.Element }) => {
   return (
     <>
       <header className={styles.header}>
-        <img src="assets/logo.png" alt="logo da atlética" />
+        <img src={logo} alt="logo da atlética" />
         <ul>
           <li>
             <Link to="/">Início</Link>
@@ -33,7 +33,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
             </Link>
           </li>
           <li>
-            <Link to="/auth">
+            <Link to="/auth/login">
               <Button text="Login" />
             </Link>
           </li>

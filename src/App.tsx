@@ -9,6 +9,8 @@ import Members from "./pages/members";
 import Cart from "./components/cart";
 import MembersForm from "./pages/members/members-form";
 import EventCreation from "./pages/event_creation";
+import AuthRegister from "./pages/auth/auth-register";
+import AuthLogin from "./pages/auth/auth-login";
 
 function App() {
   return (
@@ -58,9 +60,14 @@ function App() {
         element={
           <Header>
             <EventCreation />
-          </Header>}>
+          </Header>
+        }
+      ></Route>
+
+      <Route path="/auth" element={<Auth />}>
+        <Route path="login" element={<AuthLogin />} />
+        <Route path="register" element={<AuthRegister />} />
       </Route>
-      <Route path="/auth" element={<Auth />}></Route>
     </Routes>
   );
 }

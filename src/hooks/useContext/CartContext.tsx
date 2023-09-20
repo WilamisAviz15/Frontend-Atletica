@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, ReactNode, useState, useEffect } from "react";
 
-import { ProductInterface } from "../../pages/interfaces/ProductInterface";
+import { ProductInterface } from "../../pages/interfaces/product-interface";
 
 interface CartItem {
   id: number;
