@@ -42,6 +42,9 @@ const Header = ({ children }: { children: JSX.Element }) => {
           <li>
             <Link to="/event-creation">Criar Evento</Link>
           </li>
+          <li>
+            <Link to="/registered-events">Eventos Registrados</Link>
+          </li>
           <li className={styles.cart}>
             <Link to="/carrinho">
               <CartIcon />
