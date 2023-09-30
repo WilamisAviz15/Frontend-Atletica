@@ -7,17 +7,24 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import "./registred-events.css";
 import soccerIMG from './img/soccer.jpg';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+
 
 // Define the prop types
 interface MediaCardProps {
     title: string;
     description: string;
+    date: string;
+    local: string;
     path: string;
 }
 
-function MediaCard({ title, description, path }: MediaCardProps) {
+function MediaCard({ title, description, date, local, path }: MediaCardProps) {
     return (
-        <Card sx={{ width: 345, margin: 3 }}>
+        <Card sx={{ width: 400, margin: 3 }}>
             <CardMedia
                 sx={{ height: 250 }}
                 image={path}
@@ -30,10 +37,15 @@ function MediaCard({ title, description, path }: MediaCardProps) {
                 <Typography variant="body2" color="text.secondary">
                     {description}
                 </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {date}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    Local: {local}
+                </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Saber Mais</Button>
-                {/* <Button size="small">Learn More</Button> */}
             </CardActions>
         </Card>
     );
@@ -43,12 +55,23 @@ function MediaCard({ title, description, path }: MediaCardProps) {
 const RegistredEvents = () => {
     return (
         <div className="registredConteiner">
-            <MediaCard title="Titulo do Evento" description="Descrição do evento..." path={soccerIMG} />
-            <MediaCard title="Titulo do Evento" description="Descrição do evento..." path={soccerIMG} />
-            <MediaCard title="Titulo do Evento" description="Descrição do evento..." path={soccerIMG} />
-            <MediaCard title="Titulo do Evento" description="Descrição do evento..." path={soccerIMG} />
-            <MediaCard title="Titulo do Evento" description="Descrição do evento..." path={soccerIMG} />
-            {/* <MediaCard /> */}
+            <Grid container spacing={3} width={"80%"}>
+                <Grid item xs={4}>
+                    <MediaCard title="Titulo do Evento" description="Descrição do evento..." date="12/10/2003" local="Nome do Local..." path={soccerIMG} />
+                </Grid>
+                <Grid item xs={4}>
+                    <MediaCard title="Titulo do Evento" description="Descrição do evento..." date="12/10/2003" local="Nome do Local..." path={soccerIMG} />
+                </Grid>
+                <Grid item xs={4}>
+                    <MediaCard title="Titulo do Evento" description="Descrição do evento..." date="12/10/2003" local="Nome do Local..." path={soccerIMG} />
+                </Grid>
+                <Grid item xs={4}>
+                    <MediaCard title="Titulo do Evento" description="Descrição do evento..." date="12/10/2003" local="Nome do Local..." path={soccerIMG} />
+                </Grid>
+                <Grid item xs={4}>
+                    <MediaCard title="Titulo do Evento" description="Descrição do evento..." date="12/10/2003" local="Nome do Local..." path={soccerIMG} />
+                </Grid>
+            </Grid>
         </div>
     );
 };
