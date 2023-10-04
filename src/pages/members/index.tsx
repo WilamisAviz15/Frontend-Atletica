@@ -11,7 +11,8 @@ const Members = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`${environment.api}/administradores/`);
+        const response = await axios.get(`${environment.api}/membros/`);
+        console.log(response.data);
         setMembers(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados da API:", error);

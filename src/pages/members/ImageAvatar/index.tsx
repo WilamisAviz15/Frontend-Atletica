@@ -20,12 +20,14 @@ export default function ImageAvatars({ members }: { members: MemberInterface[] |
       <Stack direction="column" alignItems={"center"} marginTop={5} width={"100%"}>
         <h1>Membros da atlética</h1>
         <Stack direction="row" marginTop={5} spacing={6}>
-          {members?.map((member) => (
-            <div className="peaple">
-              <Avatar alt={member.nome} src={man2} sx={{ width: "10vw", height: "10vw" }} />
-              <p>{member.nome}</p>
-            </div>
-          ))}
+          {members
+            ?.filter((m) => m.nome !== "")
+            .map((member) => (
+              <div className="peaple">
+                <Avatar alt={member.nome} src={man2} sx={{ width: "10vw", height: "10vw" }} />
+                <p>{member.nome}</p>
+              </div>
+            ))}
         </Stack>
       </Stack>
     </>

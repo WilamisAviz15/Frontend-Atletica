@@ -1,3 +1,5 @@
+import { departments } from "../members-form/options";
+
 export interface MemberInterface {
   id?: string;
   nome: string;
@@ -8,4 +10,5 @@ export interface MemberInterface {
   matricula: string;
   curso: string;
   periodo: string;
+  diretoria_desejada: string;
 }

@@ -1,0 +1,15 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 62px);
+
+  h1 {
+    color: #7b1fa2;
+  }
+
+  img {
+    width: 300px;
+  }
+}

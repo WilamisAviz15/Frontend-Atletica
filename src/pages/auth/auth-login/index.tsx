@@ -53,7 +53,7 @@ const AuthLogin = () => {
     } catch (error: any) {
       if (error instanceof AxiosError) {
         console.log(error);
-        handleOpenSnackbar(errorMessages(error.response?.data), "error");
+        handleOpenSnackbar(error.message, "error");
       }
     }
   };

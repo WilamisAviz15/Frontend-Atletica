@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./Header.module.scss";
 import Button from "../Button";
@@ -8,6 +8,7 @@ import logo from "../../assets/logo.png";
 
 const Header = ({ children }: { children: JSX.Element }) => {
   const [isLogged, setIsLogged] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
@@ -25,7 +26,7 @@ const Header = ({ children }: { children: JSX.Element }) => {
   return (
     <>
       <header className={styles.header}>
-        <img src={logo} alt="logo da atlética" />
+        <img src={logo} alt="logo da atlética" onClick={() => navigate("/")} />
         <ul>
           <li>
             <Link to="/">Início</Link>

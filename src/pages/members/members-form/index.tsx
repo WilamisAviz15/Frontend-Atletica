@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import axios, { AxiosError } from "axios";
 import TextField from "@mui/material/TextField";
+import { MenuItem } from "@mui/material";
 
 import styles from "./MembersForm.module.scss";
 import Button from "../../../components/Button";
 import { MemberInterface } from "../interfaces/Member.interface";
-import axios, { AxiosError } from "axios";
 import { environment } from "../../../environments/environment";
 import { CartToast } from "../../../components/snackbar";
 import { SnackbarInterface } from "../interfaces/Snackbar.interface";
-import { MenuItem } from "@mui/material";
-import { collegePeriod, course, initialForm } from "./options";
+import { collegePeriod, course, departments, initialForm } from "./options";
 import { errorMessages, hasEmptyFields } from "../../../shared/util";
 
 const MembersForm = () => {
   const [form, setForm] = useState<MemberInterface>(initialForm);
   const [snackbar, setSnackbar] = useState<SnackbarInterface>({ isOpen: false, message: "", severity: "success" });
-  let selectedPeriod = "";
-  let selectedCourse = "";
+  const [selectedPeriod, setSelectedPeriod] = useState<string>("");
+  const [selectedCourse, setSelectedCourse] = useState<string>("");
+  const [selectedDepartment, setSelectedDepartment] = useState<string>("");
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     console.log(name, value);
@@ -54,6 +55,28 @@ const MembersForm = () => {
     }
   };
 
+  const handleSelectChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    state: "period" | "course" | "department"
+  ) => {
+    switch (state) {
+      case "period":
+        setSelectedPeriod(event.target.value);
+        handleInputChange(event);
+        return;
+      case "course":
+        setSelectedCourse(event.target.value);
+        handleInputChange(event);
+
+        return;
+      case "department":
+        setSelectedDepartment(event.target.value);
+        handleInputChange(event);
+
+        return;
+    }
+  };
+
   return (
     <>
       <h1 className={styles.h1}>Formulário para Fazer Parte da Octa </h1>
@@ -71,7 +94,7 @@ const MembersForm = () => {
           select
           label="Curso"
           value={selectedCourse}
-          onChange={(v) => handleInputChange(v)}
+          onChange={(v) => handleSelectChange(v, "course")}
         >
           {course.map((option) => (
             <MenuItem key={option} value={option?.toString()}>
@@ -86,9 +109,24 @@ const MembersForm = () => {
           fullWidth
           select
           label="Período"
-          onChange={(v) => handleInputChange(v)}
+          onChange={(v) => handleSelectChange(v, "period")}
         >
           {collegePeriod.map((option) => (
+            <MenuItem key={option} value={option?.toString()}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="diretoria_desejada"
+          name="diretoria_desejada"
+          value={selectedDepartment}
+          fullWidth
+          select
+          label="Diretoria desejada"
+          onChange={(v) => handleSelectChange(v, "department")}
+        >
+          {departments.map((option) => (
             <MenuItem key={option} value={option?.toString()}>
               {option}
             </MenuItem>

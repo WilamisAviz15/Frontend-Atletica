@@ -38,7 +38,7 @@ function EventCreation() {
       handleOpenSnackbar("Evento criado com sucesso.", "success");
     } catch (error: any) {
       if (error instanceof AxiosError) {
-        handleOpenSnackbar(errorMessages(error.response?.data), "error");
+        handleOpenSnackbar(error.message, "error");
       }
     }
   };

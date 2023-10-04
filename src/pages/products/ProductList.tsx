@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { shirt1, cup1, shorts1 } from "./images";
+import { shirt1, cup1, shorts1, generic } from "./images";
 import { ProductInterface } from "../interfaces/product-interface";
 import { Grid } from "@mui/material";
 
@@ -23,6 +23,8 @@ const ProductList = () => {
         case "Copo":
           product.imagem = cup1;
           break;
+        default:
+          product.imagem = generic;
       }
       return product;
     });

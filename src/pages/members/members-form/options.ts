@@ -12,7 +12,11 @@ const collegePeriod = [
   "9º período",
   "10º período",
 ];
+
+const departments = ["Financeiro", "Direção", "Marketing", "Eventos"];
+
 const course = ["Ciência da Computação", "Engenharia da Computação"];
+
 const initialForm: MemberInterface = {
   nome: "",
   cpf: "",
@@ -22,6 +26,7 @@ const initialForm: MemberInterface = {
   matricula: "",
   curso: "",
   periodo: "",
+  diretoria_desejada: "",
 };
 
-export { collegePeriod, course, initialForm };
+export { collegePeriod, course, initialForm, departments };
