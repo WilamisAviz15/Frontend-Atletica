@@ -5,8 +5,11 @@ class EventService {
   constructor() {}
 
   async httpPost(data: EventInterface): Promise<any> {
-    const response = await http.post<EventInterface, EventInterface>("eventos/", { data });
-    return response.data;
+    return (await http.post<EventInterface, EventInterface>("eventos/", { data })).data;
+  }
+
+  async httpGet(): Promise<EventInterface[]> {
+    return (await http.get<EventInterface, EventInterface[]>("eventos/")).data;
   }
 }
 export default new EventService();

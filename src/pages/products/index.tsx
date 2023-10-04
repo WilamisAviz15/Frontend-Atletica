@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 
-import ProductList from "./ProductList";
+import ProductList from "./product-list/ProductList";
 import { useContext } from "react";
 import { CartContext } from "../../hooks/useContext/CartContext";
 

@@ -8,13 +8,13 @@ import Products from "./pages/products";
 import Members from "./pages/members";
 import Cart from "./components/cart";
 import MembersForm from "./pages/members/members-form";
-import EventCreation from "./pages/event-creation";
-import RegistredEvents from "./pages/registered-events";
+import EventCreation from "./pages/events";
 import AuthRegister from "./pages/auth/auth-register";
 import AuthLogin from "./pages/auth/auth-login";
 import authService from "./pages/auth/auth.service";
 import PrivateRoute from "./shared/pages/private-route";
 import path from "path";
+import RegistredEvents from "./pages/events/events-list";
 
 const MyRoutes = () => {
   return (
@@ -36,6 +36,16 @@ const MyRoutes = () => {
           </Header>
         }
       ></Route>
+
+      <Route
+        path="/produtos/create"
+        element={
+          <Header>
+            <Products />
+          </Header>
+        }
+      ></Route>
+
       <Route
         path="/membros"
         element={

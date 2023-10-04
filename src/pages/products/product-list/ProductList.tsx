@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { shirt1, cup1, shorts1, generic } from "./images";
-import { ProductInterface } from "../interfaces/product-interface";
+import { ProductInterface } from "../../interfaces/product-interface";
 import { Grid } from "@mui/material";
 
-import ProductCard from "./product-card";
-import { environment } from "../../environments/environment";
+import ProductCard from "../product-card";
+import { environment } from "../../../environments/environment";
 
 const ProductList = () => {
   const [products, setProducts] = useState<ProductInterface[]>();

@@ -29,3 +29,17 @@ export const errorMessages = (errors: FormErrors | { error: string }) => {
 export function hasEmptyFields<T extends object>(object: T) {
   return Object.values(object).some((value) => value === "");
 }
+
+export function formatDate(date: Date): string {
+  const dateObj = new Date(date);
+  const dd = dateObj.getDate().toString().padStart(2, "0");
+  const mm = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+  const yyyy = dateObj.getFullYear().toString();
+
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+export function formatTime(time: string): string {
+  const time_ = time.split(":");
+  return `${time_[0]}:${time_[1]}`;
+}
