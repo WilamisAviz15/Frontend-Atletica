@@ -3,13 +3,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: calc(100vh - 62px);
+  height: calc(100vh - 200px);
+  gap: 15px;
 
   h1 {
     color: #7b1fa2;
   }
 
   img {
-    width: 300px;
+    width: 1080px;
+    height: 500px;
+    object-fit: scale-down;
   }
 }
