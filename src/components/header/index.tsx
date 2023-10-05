@@ -5,6 +5,7 @@ import styles from "./Header.module.scss";
 import Button from "../Button";
 import CartIcon from "../cartIcon";
 import logo from "../../assets/logo.png";
+import authService from "../../pages/auth/auth.service";
 
 const Header = ({ children }: { children: JSX.Element }) => {
   const [isLogged, setIsLogged] = useState(false);

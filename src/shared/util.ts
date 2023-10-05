@@ -30,7 +30,7 @@ export function hasEmptyFields<T extends object>(object: T) {
   return Object.values(object).some((value) => value === "");
 }
 
-export function formatDate(date: Date): string {
+export function formatDate(date: Date | string): string {
   const dateObj = new Date(date);
   const dd = dateObj.getDate().toString().padStart(2, "0");
   const mm = (dateObj.getMonth() + 1).toString().padStart(2, "0");

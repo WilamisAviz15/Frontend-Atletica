@@ -16,7 +16,7 @@ class AuthService {
     this.user$.next(accessToken);
   }
 
-  getTokenToStorage(accessToken: string): string | null {
+  getTokenToStorage(): string | null {
     return localStorage.getItem("access_token");
   }
 

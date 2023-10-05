@@ -7,13 +7,14 @@ import dayjs, { Dayjs } from "dayjs";
 import { AxiosError } from "axios";
 
 import { EventInterface } from "../interfaces/event.interface";
-import { errorMessages, hasEmptyFields } from "../../shared/util";
+import { formatDate, hasEmptyFields } from "../../shared/util";
 import Button from "../../components/Button";
 import "./event.css";
 import eventService from "./event.service";
 import { SnackbarInterface } from "../members/interfaces/Snackbar.interface";
 import { CartToast } from "../../components/snackbar";
 import { initialForm } from "./options";
+import TimePickerValue from "../../components/Timepicker";
 
 function EventCreation() {
   const [form, setForm] = useState<EventInterface>(initialForm);
@@ -33,6 +34,7 @@ function EventCreation() {
   const createEvent = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    console.log(form);
     try {
       await eventService.httpPost(form);
       handleOpenSnackbar("Evento criado com sucesso.", "success");
@@ -59,9 +61,16 @@ function EventCreation() {
     if (isDayjsObject(value)) {
       setForm({
         ...form,
-        data: value.toDate(),
+        data: formatDate(value.toDate()),
       });
     }
+  };
+
+  const handleTimeChange = (time: string) => {
+    setForm({
+      ...form,
+      hora: time,
+    });
   };
 
   return (
@@ -96,6 +105,7 @@ function EventCreation() {
             name="local"
             onChange={(v) => handleInputChange(v)}
           />
+          <TimePickerValue onTimeChange={handleTimeChange} />
           <Button
             text="Criar evento"
             customStyles={{ backgroundColor: "#7b1fa2", color: "#f3e5f5", borderStyle: "none", width: "100%" }}

@@ -37,14 +37,16 @@ const MyRoutes = () => {
         }
       ></Route>
 
-      <Route
-        path="/produtos/create"
-        element={
-          <Header>
-            <Products />
-          </Header>
-        }
-      ></Route>
+      <Route path="/produtos" element={<PrivateRoute />}>
+        <Route
+          path="criar"
+          element={
+            <Header>
+              <h1>a</h1>
+            </Header>
+          }
+        />
+      </Route>
 
       <Route
         path="/membros"
