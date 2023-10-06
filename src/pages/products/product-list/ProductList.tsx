@@ -50,7 +50,7 @@ const ProductList = () => {
           <Grid item xs={3}>
             <ProductCard
               id={product.id}
-              imagem={product.imagem}
+              imagem={product.imagem!}
               nome={product.nome}
               descricao={product.descricao}
               preco={product.preco}

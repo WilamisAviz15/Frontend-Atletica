@@ -8,13 +8,13 @@ import { AxiosError } from "axios";
 
 import { EventInterface } from "../interfaces/event.interface";
 import { formatDate, hasEmptyFields } from "../../shared/util";
-import Button from "../../components/Button";
+import Button from "../../components/button";
 import "./event.css";
 import eventService from "./event.service";
 import { SnackbarInterface } from "../members/interfaces/Snackbar.interface";
 import { CartToast } from "../../components/snackbar";
 import { initialForm } from "./options";
-import TimePickerValue from "../../components/Timepicker";
+import TimePickerValue from "../../components/timepicker";
 
 function EventCreation() {
   const [form, setForm] = useState<EventInterface>(initialForm);
@@ -61,7 +61,7 @@ function EventCreation() {
     if (isDayjsObject(value)) {
       setForm({
         ...form,
-        data: formatDate(value.toDate()),
+        data: formatDate(value.toDate(), "dash"),
       });
     }
   };

@@ -4,7 +4,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import styles from "./AuthLogin.module.scss";
 import InputText from "../../../components/input";
 import { AuthInterface } from "../../interfaces/auth-login.interface";
-import Button from "../../../components/Button";
+import Button from "../../../components/button";
 import logo from "../../../assets/logo.png";
 import { AxiosError } from "axios";
 import authService from "../auth.service";

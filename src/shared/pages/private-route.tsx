@@ -4,6 +4,7 @@ import authService from "../../pages/auth/auth.service";
 
 const PrivateRoute = () => {
   const auth = authService.getCurrentUser();
+  console.log(auth);
 
   return auth ? <Outlet /> : <Navigate to="/auth/login" />;
 };

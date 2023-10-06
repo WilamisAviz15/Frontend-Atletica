@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import styles from "./Header.module.scss";
-import Button from "../Button";
+import Button from "../button";
 import CartIcon from "../cartIcon";
 import logo from "../../assets/logo.png";
 import authService from "../../pages/auth/auth.service";
+import NgIf from "../../directives/ng-if";
 
 const Header = ({ children }: { children: JSX.Element }) => {
   const [isLogged, setIsLogged] = useState(false);
@@ -35,17 +36,23 @@ const Header = ({ children }: { children: JSX.Element }) => {
           <li>
             <Link to="/produtos">Produtos</Link>
           </li>
+          <NgIf condition={isLogged}>
+            <li>
+              <Link to="/produtos-criar">Criar produto</Link>
+            </li>
+            <li>
+              <Link to="/eventos-criar">Criar Evento</Link>
+            </li>
+          </NgIf>
           <li>
             <Link to="/membros">Membros</Link>
           </li>
           <li>
             <Link to="/torne-se-membro">Torne-se membro</Link>
           </li>
+
           <li>
-            <Link to="/event-creation">Criar Evento</Link>
-          </li>
-          <li>
-            <Link to="/registered-events">Eventos Registrados</Link>
+            <Link to="/eventos">Eventos Registrados</Link>
           </li>
           <li className={styles.cart}>
             <Link to="/carrinho">

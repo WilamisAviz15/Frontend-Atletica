@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 
 import InputText from "../../../components/input";
 import logo from "../../../assets/logo.png";
-import Button from "../../../components/Button";
+import Button from "../../../components/button";
 import styles from "./AuthRegister.module.scss";
 import { AuthRegisterInterface, TField } from "../../interfaces/auth-register.interface";
 import { initialForm } from "./options";

@@ -11,10 +11,9 @@ import MembersForm from "./pages/members/members-form";
 import EventCreation from "./pages/events";
 import AuthRegister from "./pages/auth/auth-register";
 import AuthLogin from "./pages/auth/auth-login";
-import authService from "./pages/auth/auth.service";
 import PrivateRoute from "./shared/pages/private-route";
-import path from "path";
 import RegistredEvents from "./pages/events/events-list";
+import ProductForm from "./pages/products/product-form";
 
 const MyRoutes = () => {
   return (
@@ -37,12 +36,12 @@ const MyRoutes = () => {
         }
       ></Route>
 
-      <Route path="/produtos" element={<PrivateRoute />}>
+      <Route path="/produtos-criar" element={<PrivateRoute />}>
         <Route
-          path="criar"
+          path=""
           element={
             <Header>
-              <h1>a</h1>
+              <ProductForm />
             </Header>
           }
         />
@@ -72,7 +71,7 @@ const MyRoutes = () => {
           </Header>
         }
       ></Route>
-      <Route path="/event-creation" element={<PrivateRoute />}>
+      <Route path="/eventos-criar" element={<PrivateRoute />}>
         <Route
           path=""
           element={
@@ -84,7 +83,7 @@ const MyRoutes = () => {
       </Route>
 
       <Route
-        path="/registered-events"
+        path="/eventos"
         element={
           <Header>
             <RegistredEvents />

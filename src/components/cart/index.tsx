@@ -4,7 +4,7 @@ import { CartContext } from "../../hooks/useContext/CartContext";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 import styles from "./Cart.module.scss";
-import Button from "../Button";
+import Button from "../button";
 
 export default function Cart() {
   const context = useContext(CartContext);

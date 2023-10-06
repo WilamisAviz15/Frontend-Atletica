@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { MenuItem } from "@mui/material";
 
 import styles from "./MembersForm.module.scss";
-import Button from "../../../components/Button";
+import Button from "../../../components/button";
 import { MemberInterface } from "../interfaces/Member.interface";
 import { environment } from "../../../environments/environment";
 import { CartToast } from "../../../components/snackbar";

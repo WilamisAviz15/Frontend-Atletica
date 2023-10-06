@@ -4,7 +4,9 @@ import { AuthInterface } from "../interfaces/auth-login.interface";
 
 class AuthService {
   private user$: BehaviorSubject<any> = new BehaviorSubject(null);
-  constructor() {}
+  constructor() {
+    this.recoveryDataFromLocalStorage();
+  }
 
   async httpPost(data: AuthInterface): Promise<{ token: string }> {
     const response = await http.post<AuthInterface, { token: string }>("login/", { data });
@@ -23,6 +25,13 @@ class AuthService {
   getCurrentUser() {
     console.log(this.user$.getValue());
     return this.user$.getValue();
+  }
+
+  private recoveryDataFromLocalStorage() {
+    const bearer_ = localStorage.getItem("access_token");
+    if (bearer_) {
+      this.user$.next(bearer_);
+    }
   }
 }
 export default new AuthService();

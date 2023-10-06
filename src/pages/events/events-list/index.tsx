@@ -33,7 +33,7 @@ const EventsList = () => {
             <EventsCard
               title={event.nome}
               description={event.descricao}
-              date={formatDate(event.data)}
+              date={formatDate(event.data, "bar")}
               local={event.local}
               time={formatTime(event.hora)}
               path={img}
