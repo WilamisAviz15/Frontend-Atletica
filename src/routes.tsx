@@ -14,6 +14,7 @@ import AuthLogin from "./pages/auth/auth-login";
 import PrivateRoute from "./shared/pages/private-route";
 import RegistredEvents from "./pages/events/events-list";
 import ProductForm from "./pages/products/product-form";
+import WaitList from "./pages/waitlist";
 
 const MyRoutes = () => {
   return (
@@ -87,6 +88,15 @@ const MyRoutes = () => {
         element={
           <Header>
             <RegistredEvents />
+          </Header>
+        }
+      ></Route>
+
+      <Route
+        path="/banco-de-espera"
+        element={
+          <Header>
+            <WaitList />
           </Header>
         }
       ></Route>

@@ -41,7 +41,10 @@ const Header = ({ children }: { children: JSX.Element }) => {
               <Link to="/produtos-criar">Criar produto</Link>
             </li>
             <li>
-              <Link to="/eventos-criar">Criar Evento</Link>
+              <Link to="/eventos-criar">Criar evento</Link>
+            </li>
+            <li>
+              <Link to="/banco-de-espera">Banco de espera</Link>
             </li>
           </NgIf>
           <li>

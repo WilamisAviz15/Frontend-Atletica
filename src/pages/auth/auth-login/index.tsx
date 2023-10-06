@@ -11,10 +11,12 @@ import authService from "../auth.service";
 import { errorMessages } from "../../../shared/util";
 import { SnackbarInterface } from "../../members/interfaces/Snackbar.interface";
 import { CartToast } from "../../../components/snackbar";
+import Loading from "../../../components/spinner";
 
 const AuthLogin = () => {
   const [user, setUser] = useState<AuthInterface>({ username: "", password: "" });
   const [snackbar, setSnackbar] = useState<SnackbarInterface>({ isOpen: false, message: "", severity: "success" });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleOpenSnackbar = (message: string, severity: "success" | "error" | "info" | "warning") => {
@@ -44,7 +46,7 @@ const AuthLogin = () => {
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const res = await authService.httpPost(user);
       authService.setTokenToStorage(res.token);
@@ -56,10 +58,12 @@ const AuthLogin = () => {
         handleOpenSnackbar(error.message, "error");
       }
     }
+    setIsLoading(false);
   };
 
   return (
     <>
+      {isLoading && <Loading />}
       <form onSubmit={login} className={styles.login}>
         <div>
           <img src={logo} alt="logo da atletica" />

@@ -30,12 +30,14 @@ export function hasEmptyFields<T extends object>(object: T) {
   return Object.values(object).some((value) => value === "");
 }
 
-export function formatDate(date: Date | string, format: "dash" | "bar"): string {
+export function formatDate(date: Date | string, format: "dash" | "bar" = "bar", hour: boolean = false): string {
   let newDate = "";
   const dateObj = new Date(date);
   const dd = dateObj.getDate().toString().padStart(2, "0");
   const mm = (dateObj.getMonth() + 1).toString().padStart(2, "0");
   const yyyy = dateObj.getFullYear().toString();
+  const hour_ = dateObj.getHours();
+  const minutes = dateObj.getMinutes();
   switch (format) {
     case "bar":
       newDate = `${dd}/${mm}/${yyyy}`;
@@ -45,7 +47,7 @@ export function formatDate(date: Date | string, format: "dash" | "bar"): string 
       break;
   }
 
-  return newDate;
+  return hour ? newDate.concat(` ${hour_}:${minutes}`) : newDate;
 }
 
 export function formatTime(time: string): string {

@@ -11,10 +11,12 @@ import { environment } from "../../../environments/environment";
 import { SnackbarInterface } from "../../members/interfaces/Snackbar.interface";
 import { CartToast } from "../../../components/snackbar";
 import { errorMessages, hasEmptyFields } from "../../../shared/util";
+import Loading from "../../../components/spinner";
 
 const AuthRegister = () => {
   const [user, setUser] = useState<AuthRegisterInterface>(initialForm);
   const [snackbar, setSnackbar] = useState<SnackbarInterface>({ isOpen: false, message: "", severity: "success" });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleOpenSnackbar = (message: string, severity: "success" | "error" | "info" | "warning") => {
     setSnackbar({ isOpen: true, message, severity });
@@ -36,7 +38,7 @@ const AuthRegister = () => {
 
   const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const response = await axios.post(`${environment.api}/register/`, user);
       handleOpenSnackbar("Usuário criado com sucesso.", "success");
@@ -45,10 +47,12 @@ const AuthRegister = () => {
         handleOpenSnackbar(errorMessages(error.response?.data), "error");
       }
     }
+    setIsLoading(false);
   };
 
   return (
     <>
+      {isLoading && <Loading />}
       <form onSubmit={createUser} className={styles.register}>
         <div>
           <img src={logo} alt="logo da atletica" />
