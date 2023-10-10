@@ -43,7 +43,20 @@ const WaitListTable = () => {
     handleData();
   }, []);
 
-  const sendEmail = () => {
+  const sendEmail = async (email: string) => {
+    try {
+      const res = await waitListService.httpPost({
+        assunto: "Seja bem vindo",
+        mensagem: "Seu cadastro foi aprovado",
+        destinatario: email,
+      });
+      handleOpenSnackbar("Email enviado com sucesso.", "success");
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error);
+        handleOpenSnackbar(error.message, "error");
+      }
+    }
     console.log("send mail");
   };
 
@@ -82,7 +95,7 @@ const WaitListTable = () => {
                 <TableCell align="right">{formatDate(row.data, "bar", true)}</TableCell>
                 <TableCell align="right">{row.diretoria_desejada}</TableCell>
                 <TableCell align="right">
-                  <IconButton aria-label="Enviar e-mail" title="Enviar e-mail" onClick={sendEmail}>
+                  <IconButton aria-label="Enviar e-mail" title="Enviar e-mail" onClick={() => sendEmail(row.email)}>
                     <EmailIcon />
                   </IconButton>
                 </TableCell>

@@ -10,6 +10,15 @@ class WaitListService {
       })
     ).data;
   }
+
+  async httpPost(data: { assunto: string; mensagem: string; destinatario: string }): Promise<any> {
+    return (
+      await http.post<any, any>("enviaremail/", {
+        data,
+        config: { headers: { Authorization: `Token ${authService.getTokenToStorage()}` } },
+      })
+    ).data;
+  }
 }
 
 export default new WaitListService();

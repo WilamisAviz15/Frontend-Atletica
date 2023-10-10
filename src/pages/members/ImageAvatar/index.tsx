@@ -13,8 +13,10 @@ import woman4 from "../img/woman4.jpg";
 import woman5 from "../img/woman5.jpg";
 import woman6 from "../img/woman6.jpg";
 import { MemberInterface } from "../interfaces/Member.interface";
+import styles from "./ImageAvatar.module.scss";
 
 export default function ImageAvatars({ members }: { members: MemberInterface[] | undefined }) {
+  console.log(members);
   return (
     <>
       <Stack direction="column" alignItems={"center"} marginTop={5} width={"100%"}>
@@ -23,9 +25,10 @@ export default function ImageAvatars({ members }: { members: MemberInterface[] |
           {members
             ?.filter((m) => m.nome !== "")
             .map((member) => (
-              <div className="peaple">
+              <div className={styles.people}>
                 <Avatar alt={member.nome} src={man2} sx={{ width: "10vw", height: "10vw" }} />
                 <p>{member.nome}</p>
+                <p>{member.diretoria}</p>
               </div>
             ))}
         </Stack>

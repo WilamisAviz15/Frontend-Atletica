@@ -10,5 +10,6 @@ export interface MemberInterface {
   matricula: string;
   curso: string;
   periodo: string;
+  diretoria?: string;
   diretoria_desejada: string;
 }
